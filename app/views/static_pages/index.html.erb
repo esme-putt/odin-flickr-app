@@ -1,0 +1,12 @@
+<%= form_with url: static_pages_path, method: :get, local: true do %>
+    <%= label_tag :id, "Enter User ID:" %>
+    <%= text_field_tag :id, params[:id] %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<% if @photos %>
+    <h2>Search Results:</h2>
+    <% @photos.each do |photo| %>
+        <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+    <% end %>
+<% end %>
